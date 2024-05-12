@@ -13,7 +13,7 @@ function Checkbox({ updateTask, task, editTask }) {
         type="checkbox"
         checked={task.taskComplete}
         onChange={() => updateTask(task.taskId)}
-        className=" p-1"
+        className=" p-2 "
       />
       {editMode ? (
         <>
@@ -36,7 +36,7 @@ function Checkbox({ updateTask, task, editTask }) {
       ) : (
         <div onClick={() => setEditMode((prev) => !prev)}>
           <p
-            className={`font-dosis text-xl  ${
+            className={`font-dosis text-xl cursor-pointer  ${
               task.taskComplete ? " line-through opacity-50" : ""
             }`}
           >

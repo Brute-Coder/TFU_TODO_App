@@ -14,7 +14,8 @@ export default function App() {
   const [currentTime, setCurrentTime] = useState(moment());
 
   function handleAdd(input) {
-    if (!input || !validator(input)) {
+    input = input.trim();
+    if (!input || validator(input)) {
       !input
         ? toast.error("Task Can't Be Empty")
         : toast.error("You have added same task Previously");
@@ -29,8 +30,7 @@ export default function App() {
 
   function validator(input) {
     const filter = tasks.filter((task) => task.taskContent === input);
-    if (filter.length > 0) return false;
-    return true;
+    return filter.length;
   }
 
   function deleteTask(taskId) {
@@ -49,13 +49,13 @@ export default function App() {
     );
 
     const get = tasks.filter((data) => data.taskId === taskId);
-    console.log(get);
     get[0].taskComplete
       ? toast.success("Let's,Grind")
       : toast.success("Whoo,Completed");
   }
   function editTask(taskId, taskContent) {
-    if (!validator(taskContent)) {
+    taskContent = taskContent.trim();
+    if (validator(taskContent) >= 1) {
       toast.error("Same Task Exist Already!");
       return;
     }
@@ -86,7 +86,7 @@ export default function App() {
         Hello TFU! Have a Productive Day
       </h1>
       <div className="  bg-white justify-center items-center  p-6 mt-4 rounded-lg shadow-xl text-black mb-4">
-        <h1 className=" text-4xl font-sedan m-2 text-center">TODO </h1>
+        <h1 className=" text-4xl font-sedan m-2 text-center">TODO</h1>
         <div className=" flex justify-between mt-2 mb-1">
           <p className=" font-dosis">Time : {moment().format("h:mm a")} </p>
           <p className=" font-dosis">Date : {moment().format("MMM Do YY")}</p>
