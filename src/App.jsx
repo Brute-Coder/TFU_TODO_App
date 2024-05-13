@@ -82,21 +82,33 @@ export default function App() {
   }, []);
   return (
     <div className=" main w-full  min-h-screen  bg-slate-600 text-white flex flex-col items-center  ">
-      <h1 className="text-5xl font-sedan text-center mt-5 flex-warp">
-        Hello TFU! Have a Productive Day
+      <h1 className="text-4xl font-sedan text-center mt-5 flex-warp text-pretty">
+        Hello TFU! Have A Productive Day
       </h1>
       <div className="  bg-white justify-center items-center  p-6 mt-4 rounded-lg shadow-xl text-black mb-4">
-        <h1 className=" text-4xl font-sedan m-2 text-center">TODO</h1>
+        <h1 className=" text-4xl font-sedan m-2 text-center ">
+          TO<p className=" text-green-500 font-sedan inline">DO</p>
+        </h1>
         <div className=" flex justify-between mt-2 mb-1">
-          <p className=" font-dosis">Time : {moment().format("h:mm a")} </p>
-          <p className=" font-dosis">Date : {moment().format("MMM Do YY")}</p>
+          <p className=" font-dosis">
+            <p className=" font-bold inline">Time :</p>{" "}
+            {moment().format("h:mm a")}{" "}
+          </p>
+          <p className=" font-dosis">
+            <p className=" font-bold inline">Date :</p>{" "}
+            {moment().format("MMM Do YY")}
+          </p>
         </div>
         <hr className="h-px my-4  border-1 bg-gray-700"></hr>
         <TaskInput handleAdd={handleAdd} />
         {tasks && tasks.length > 0 ? (
           <div>
             <h1 className=" text-black font-dosis text-xl mt-4 text-center">
-              Keep Going {getActiveTaskCount()}/{tasks.length} Completed
+              Keep Going{" "}
+              <p className=" inline text-green-600 font-bold">
+                {getActiveTaskCount()}
+              </p>
+              /{tasks.length} Completed
             </h1>
             {tasks.map((note) => (
               <TodoRow
@@ -110,7 +122,9 @@ export default function App() {
           </div>
         ) : (
           <h1 className=" text-black font-dosis text-xl mt-4 text-center">
-            Your TO-DO list is empty add new task now!
+            Your TO-DO list is{" "}
+            <p className=" text-red-400 font-bold inline">empty</p> add new task
+            now !
           </h1>
         )}
       </div>
