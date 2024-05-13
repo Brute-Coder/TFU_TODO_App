@@ -7,7 +7,7 @@ function TodoRow({ task, deleteTask, updateTask, editTask }) {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div
-      className={`flex justify-between p-2 border border-black m-2 shadow-md  rounded-md${
+      className={`flex justify-between p-2 border border-black m-2 shadow-md  max-w-[500px] rounded-md${
         task.isComplete ? "bg-opacity-50 bg-slate-500" : ""
       }`}
       onMouseEnter={() => setIsHovered(true)}
