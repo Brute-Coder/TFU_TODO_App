@@ -14,11 +14,11 @@ function TaskInput({ handleAdd }) {
           type="text"
           onChange={(e) => setInput(e.target.value)}
           value={input}
-          placeholder="Add a new note"
-          className=" text-black font-dosis bg-transparent mr-4 border border-black px-4 w-[400px] py-2"
+          placeholder="Add a new TASK"
+          className=" text-black font-dosis bg-transparent mr-4 border border-black px-4 md:w-[400px] py-2 sm:w-[200px]"
         />
         <Button size="small" onClick={handleClick}>
-          ADD NOTE
+          ADD TASK
         </Button>
       </label>
     </div>
